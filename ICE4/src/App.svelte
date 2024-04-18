@@ -7,10 +7,10 @@
   ws.onopen = () => {
     ws.send( 'a new client has connected.' )
 
-    ws.onmessage = async msg => {
+    ws.onmessage = msg => {
       // add message to end of msgs array,
       // re-assign to trigger UI update
-      const message = await msg.data.text()
+      const message = msg.data
       msgs = msgs.concat([ 'them: ' + message ])
     }
   }
